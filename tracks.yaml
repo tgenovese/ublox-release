@@ -1,3 +1,4 @@
+release_repo_url: git@github.com:tgenovese/ublox-release.git
 tracks:
   foxy:
     actions:
