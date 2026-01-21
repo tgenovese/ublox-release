@@ -1,3 +1,30 @@
+## ublox (jazzy) - 2.3.0-5
+
+The packages in the `ublox` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --rosdistro jazzy --override-release-repository-push-url git@github.com:tgenovese/ublox-release.git --new-track ublox` on `Wed, 21 Jan 2026 15:52:45 -0000`
+
+These packages were released:
+- `ublox`
+- `ublox_gps`
+- `ublox_msgs`
+- `ublox_serialization`
+
+Version of package(s) in repository `ublox`:
+
+- upstream repository: https://github.com/KumarRobotics/ublox.git
+- release repository: https://github.com/tgenovese/ublox-release.git
+- rosdistro version: `2.3.0-4`
+- old version: `2.3.0-4`
+- new version: `2.3.0-5`
+
+Versions of tools used:
+
+- bloom version: `0.13.0`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## ublox (rolling) - 3.0.0-1
 
 The packages in the `ublox` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --track rolling --rosdistro rolling ublox` on `Fri, 26 Sep 2025 17:26:32 -0000`
