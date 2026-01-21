@@ -188,6 +188,7 @@ void HpgRefProduct::callbackNavSvIn(const ublox_msgs::msg::NavSVIN& m) {
     setTimeMode(gps_);
   }
 
+  updater_->force_update();
 }
 
 bool HpgRefProduct::setTimeMode(std::shared_ptr<ublox_gps::Gps> gps) {

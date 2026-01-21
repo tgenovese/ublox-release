@@ -69,10 +69,6 @@ void Gps::setWorker(const std::shared_ptr<Worker>& worker) {
   configured_ = static_cast<bool>(worker);
 }
 
-void Gps::subscribe_nmea(std::function<void(const std::string &)> callback) {
-  callbacks_.set_nmea_callback(callback);
-}
-
 void Gps::subscribeAcks() {
   // Set NACK handler
   subscribeId<ublox_msgs::msg::Ack>(std::bind(&Gps::processNack, this,
@@ -555,14 +551,11 @@ bool Gps::setDeadReckonLimit(uint8_t limit) {
   return configure(msg);
 }
 
-bool Gps::setPpp(bool enable, float protocol_version) {
+bool Gps::setPpp(bool enable) {
   RCLCPP_DEBUG(logger_,"%s PPP", (enable ? "Enabling" : "Disabling"));
 
   ublox_msgs::msg::CfgNAVX5 msg;
   msg.use_ppp = enable;
-  if(protocol_version >= 18){
-    msg.version = 2;
-  }
   msg.mask1 = ublox_msgs::msg::CfgNAVX5::MASK1_PPP;
   return configure(msg);
 }
@@ -574,21 +567,13 @@ bool Gps::setDgnss(uint8_t mode) {
   return configure(cfg);
 }
 
-bool Gps::setUseAdr(bool enable, float protocol_version) {
+bool Gps::setUseAdr(bool enable) {
   RCLCPP_DEBUG(logger_, "%s ADR/UDR", (enable ? "Enabling" : "Disabling"));
 
   ublox_msgs::msg::CfgNAVX5 msg;
   msg.use_adr = enable;
-  if(protocol_version >= 18){
-    msg.version = 2;
-  }
   msg.mask2 = ublox_msgs::msg::CfgNAVX5::MASK2_ADR;
   return configure(msg);
-}
-
-bool Gps::sendRtcm(const std::vector<uint8_t>& rtcm) {
-  worker_->send(rtcm.data(), rtcm.size());
-  return true;
 }
 
 bool Gps::poll(uint8_t class_id, uint8_t message_id,

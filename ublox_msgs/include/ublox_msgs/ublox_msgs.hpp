@@ -31,7 +31,6 @@
 
 #include <ublox_msgs/msg/nav_att.hpp>
 #include <ublox_msgs/msg/nav_clock.hpp>
-#include <ublox_msgs/msg/nav_cov.hpp>
 #include <ublox_msgs/msg/nav_dgps.hpp>
 #include <ublox_msgs/msg/nav_dop.hpp>
 #include <ublox_msgs/msg/nav_posecef.hpp>
@@ -85,10 +84,6 @@
 #include <ublox_msgs/msg/cfg_sbas.hpp>
 #include <ublox_msgs/msg/cfg_tmode3.hpp>
 #include <ublox_msgs/msg/cfg_usb.hpp>
-#include <ublox_msgs/msg/cfg_valdel.hpp>
-#include <ublox_msgs/msg/cfg_valget.hpp>
-#include <ublox_msgs/msg/cfg_valset.hpp>
-#include <ublox_msgs/msg/cfg_valset_cfgdata.hpp>
 
 #include <ublox_msgs/msg/upd_sos.hpp>
 #include <ublox_msgs/msg/upd_sos_ack.hpp>
@@ -159,7 +154,6 @@ namespace Message {
   namespace NAV {
     static const uint8_t ATT = ublox_msgs::msg::NavATT::MESSAGE_ID;
     static const uint8_t CLOCK = ublox_msgs::msg::NavCLOCK::MESSAGE_ID;
-    static const uint8_t COV = ublox_msgs::msg::NavCOV::MESSAGE_ID;
     static const uint8_t DGPS = ublox_msgs::msg::NavDGPS::MESSAGE_ID;
     static const uint8_t DOP = ublox_msgs::msg::NavDOP::MESSAGE_ID;
     static const uint8_t POSECEF = ublox_msgs::msg::NavPOSECEF::MESSAGE_ID;
@@ -227,9 +221,6 @@ namespace Message {
     static const uint8_t SBAS = ublox_msgs::msg::CfgSBAS::MESSAGE_ID;
     static const uint8_t TMODE3 = ublox_msgs::msg::CfgTMODE3::MESSAGE_ID;
     static const uint8_t USB = ublox_msgs::msg::CfgUSB::MESSAGE_ID;
-    static const uint8_t VALDEL = ublox_msgs::msg::CfgVALDEL::MESSAGE_ID;
-    static const uint8_t VALGET = ublox_msgs::msg::CfgVALGET::MESSAGE_ID;
-    static const uint8_t VALSET = ublox_msgs::msg::CfgVALSET::MESSAGE_ID;
   }  // namespace CFG
 
   namespace UPD {

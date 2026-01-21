@@ -90,6 +90,7 @@ void TimProduct::callbackTimTM2(const ublox_msgs::msg::TimTM2 &m) {
     interrupt_time_pub_->publish(t_ref_);
   }
 
+  updater_->force_update();
 }
 
 void TimProduct::initializeRosDiagnostics() {

@@ -33,7 +33,6 @@
 #include <array>
 #include <cstdint>
 #include <cstring>
-#include <string>
 #include <utility>
 #include <vector>
 
@@ -368,10 +367,7 @@ class Reader {
    */
   Reader(const uint8_t *data, uint32_t count,
          const Options &options = Options()) :
-      data_(data), count_(count), found_(false), options_(options)
-  {
-    extra_data_.reserve(1024);
-  }
+      data_(data), count_(count), found_(false), options_(options) {}
 
   using iterator = const uint8_t *;
 
@@ -390,8 +386,6 @@ class Reader {
       if (data_[0] == options_.sync_a &&
           (count_ == 1 || data_[1] == options_.sync_b)) {
         break;
-      } else {
-        extra_data_.push_back(data_[0]);
       }
     }
 
@@ -538,15 +532,9 @@ class Reader {
     return (classId() == class_id && messageId() == message_id);
   }
 
-  const std::string &getExtraData() const {
-    return extra_data_;
-  }
-
-private:
+ private:
   //! The buffer of message bytes
   const uint8_t *data_;
-  //! Unused data from the read buffer, contains nmea messages.
-  std::string extra_data_;
   //! the number of bytes in the buffer, //! decrement as the buffer is read
   uint32_t count_;
   //! Whether or not a message has been found

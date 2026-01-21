@@ -35,7 +35,6 @@
 #include <locale>
 #include <map>
 #include <stdexcept>
-#include <string>
 #include <vector>
 
 #include <rclcpp/rclcpp.hpp>
@@ -128,12 +127,6 @@ class Gps final {
    * @param uart_out the UART Out protocol, see CfgPRT for options
    */
   void resetSerial(const std::string & port);
-
-  /**
-   * @brief Send rtcm correction messages to the connected device.
-   * @param message the RTCM correction data as a vector
-   */
-  bool sendRtcm(const std::vector<uint8_t> &message);
 
   /**
    * @brief Closes the I/O port, and initiates save on shutdown procedure
@@ -300,7 +293,7 @@ class Gps final {
    * @note This is part of the expert settings. It is recommended you check
    * the ublox manual first.
    */
-  bool setPpp(bool enable, float protocol_version);
+  bool setPpp(bool enable);
 
   /**
    * @brief Set the DGNSS mode (see CfgDGNSS message for details).
@@ -314,7 +307,7 @@ class Gps final {
    * @param enable If true, enable ADR.
    * @return true on ACK, false on other conditions.
    */
-  bool setUseAdr(bool enable, float protocol_version);
+  bool setUseAdr(bool enable);
 
   /**
    * @brief Configure the U-Blox to UTC time
@@ -350,12 +343,6 @@ class Gps final {
    */
   template <typename T>
   void subscribe(typename CallbackHandler_<T>::Callback callback);
-
-  /**
-   * @brief Subscribe to the given Ublox message.
-   * @param callback the callback handler for the message
-   */
-  void subscribe_nmea(std::function<void(const std::string &)> callback);
 
   /**
    * @brief Subscribe to the message with the given ID. This is used for

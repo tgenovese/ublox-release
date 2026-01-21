@@ -41,8 +41,6 @@
 #include <ublox_msgs/msg/cfg_cfg.hpp>
 #include <ublox_msgs/msg/cfg_dat.hpp>
 #include <ublox_msgs/msg/inf.h>
-#include <rtcm_msgs/msg/message.hpp>
-#include <nmea_msgs/msg/sentence.hpp>
 // Ublox GPS includes
 #include <ublox_gps/component_interface.hpp>
 #include <ublox_gps/fix_diagnostic.hpp>
@@ -137,16 +135,6 @@ class UbloxNode final : public rclcpp::Node {
   void printInf(const ublox_msgs::msg::Inf &m, uint8_t id);
 
  private:
-
-  /**
-   * @brief Callback for '/ntrip_client/rtcm' subscription to handle RTCM correction data
-   */
-  void rtcmCallback(const rtcm_msgs::msg::Message::SharedPtr msg);
-
-  /**
-   * @brief Subscription handler for RTCM data
-   */
-  rclcpp::Subscription<rtcm_msgs::msg::Message>::SharedPtr subscription_;
 
   /**
    * @brief Initialize the I/O handling.
@@ -266,13 +254,9 @@ class UbloxNode final : public rclcpp::Node {
   rclcpp::Publisher<ublox_msgs::msg::NavSTATUS>::SharedPtr nav_status_pub_;
   rclcpp::Publisher<ublox_msgs::msg::NavPOSECEF>::SharedPtr nav_posecef_pub_;
   rclcpp::Publisher<ublox_msgs::msg::NavCLOCK>::SharedPtr nav_clock_pub_;
-  rclcpp::Publisher<ublox_msgs::msg::NavCOV>::SharedPtr nav_cov_pub_;
   rclcpp::Publisher<ublox_msgs::msg::AidALM>::SharedPtr aid_alm_pub_;
   rclcpp::Publisher<ublox_msgs::msg::AidEPH>::SharedPtr aid_eph_pub_;
   rclcpp::Publisher<ublox_msgs::msg::AidHUI>::SharedPtr aid_hui_pub_;
-  rclcpp::Publisher<nmea_msgs::msg::Sentence>::SharedPtr nmea_pub_;
-
-  void publish_nmea(const std::string & sentence, const std::string & topic);
 
   //! Navigation rate in measurement cycles, see CfgRate.msg
   uint16_t nav_rate_{0};

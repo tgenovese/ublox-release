@@ -17,11 +17,9 @@ find_package(asio REQUIRED)
 find_package(diagnostic_msgs REQUIRED)
 find_package(diagnostic_updater REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(nmea_msgs REQUIRED)
 find_package(rcl_interfaces REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
-find_package(rtcm_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(tf2 REQUIRED)
@@ -59,8 +57,6 @@ target_link_libraries(ublox_gps PUBLIC
   ${rcl_interfaces_TARGETS}
   rclcpp::rclcpp
   rclcpp_components::component
-  ${nmea_msgs_TARGETS}
-  ${rtcm_msgs_TARGETS}
   ${sensor_msgs_TARGETS}
   ${std_msgs_TARGETS}
   tf2::tf2

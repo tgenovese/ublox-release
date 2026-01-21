@@ -38,8 +38,6 @@ DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::ATT,
                       ublox_msgs, NavATT)
 DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::CLOCK,
                       ublox_msgs, NavCLOCK)
-DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::COV,
-                      ublox_msgs, NavCOV)                      
 DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::DGPS,
                       ublox_msgs, NavDGPS)
 DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::DOP,
@@ -160,12 +158,6 @@ DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::CFG, ublox_msgs::Message::CFG::TMODE3,
                       ublox_msgs, CfgTMODE3)
 DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::CFG, ublox_msgs::Message::CFG::USB,
                       ublox_msgs, CfgUSB)
-DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::CFG, ublox_msgs::Message::CFG::VALDEL,
-                      ublox_msgs, CfgVALDEL);
-DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::CFG, ublox_msgs::Message::CFG::VALGET,
-                      ublox_msgs, CfgVALGET);
-DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::CFG, ublox_msgs::Message::CFG::VALSET,
-                      ublox_msgs, CfgVALSET);
 
 DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::UPD, ublox_msgs::Message::UPD::SOS,
                       ublox_msgs, UpdSOS)
